@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  Linter_test:
-    runs-on: macos-latest         
+  Linter_test: 
+    runs-on: macos-latest
 
     steps:
       - name: Run a multi-line script
