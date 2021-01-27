@@ -2,16 +2,14 @@ name: Linter
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - master 
 
 jobs:
   Linter_test:
     runs-on: macos-latest         
 
     steps:
-      - name: uploud_rep
-      - uses: actions/checkout@v2
-
       - name: Run a multi-line script
         run: |
           ls -la
