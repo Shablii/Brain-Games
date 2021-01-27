@@ -10,13 +10,9 @@ jobs:
     runs-on: macos-latest
     
     
-
     steps:
       - name: upload_repo
         uses: actions/checkout@v2
  
-      - name: Run a multi-line script
-        run: |
-          echo "Hello word!"
-          ls -la
-          composer list
+      - name: Run_lint
+        run: make lint
