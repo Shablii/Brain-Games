@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: upload_repo
         uses: actions/checkout@v2
+    
+      - name: make_lint
+        run: composer run-script phpcs -- --standard=PSR12 src bin
  
   Linter_test: 
     runs-on: macos-latest
@@ -19,4 +22,4 @@ jobs:
      
     steps:
       - name: make_lint
-        run: composer run-script phpcs -- --standard=PSR12 src bin
+        run: la -la 
