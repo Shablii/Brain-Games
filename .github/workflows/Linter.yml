@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: upload_repo
         uses: actions/checkout@v2
+      
+      - name: composer_install
+        run: composer install
     
       - name: make_lint
         run: composer run-script phpcs -- --standard=PSR12 src bin
@@ -21,5 +24,5 @@ jobs:
     needs: [ Upload_repo ]
      
     steps:
-      - name: make_lint
-        run: la -la 
+      - name: ls
+        run: ls -la 
