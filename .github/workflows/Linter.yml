@@ -19,4 +19,4 @@ jobs:
      
     steps:
       - name: make_lint
-        run: make lint
+        run: make composer run-script phpcs -- --standard=PSR12 src bin
