@@ -6,13 +6,17 @@ on:
       - main
 
 jobs:
-  Linter_test: 
+  Upload_repo: 
     runs-on: macos-latest
-    
     
     steps:
       - name: upload_repo
         uses: actions/checkout@v2
  
-      - name: Run_lint
+  Linter_test: 
+    runs-on: macos-latest
+    needs: [ Upload_repo ]
+     
+    steps:
+      - name: make_lint
         run: make lint
