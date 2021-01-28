@@ -17,4 +17,4 @@ jobs:
         run: composer install
     
       - name: make_lint
-        run: composer run-script phpcs -- --standard=PSR12 src bin
+        run: make_lint
