@@ -17,12 +17,4 @@ jobs:
         run: composer install
     
       - name: make_lint
-        run: cat composer.json
- 
-  Linter_test: 
-    runs-on: macos-latest
-    needs: [ Upload_repo ]
-     
-    steps:
-      - name: ls
-        run: ls -la 
+        run: composer run-script phpcs -- --standard=PSR12 src bin
