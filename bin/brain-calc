@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use function cli\line;
+use function cli\prompt;
+use function Brain\Games\Engine\brainEngine;
+use function Brain\Games\Cli\welcome;
+
+function question()
+{
+    $randomNum1 = rand(5, 10);
+        $randomNum2 = rand(1, 5);
+        $symbols = ["+", "*", "-"];
+        $symbol = $symbols[rand(0, 2)];
+        $question = "{$randomNum1} {$symbol} {$randomNum2}";
+        return $question;
+}
+
+function rightAnsver($question)
+{
+    $rightAnswer = '';
+    eval('$rightAnswer = ' . $question . ';');
+    return $rightAnswer;
+}
+
+$hello = 'What is the result of the expression?';
+
+brainEngine($hello);

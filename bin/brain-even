@@ -5,12 +5,11 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use function cli\line;
 use function cli\prompt;
+use function Brain\Games\Cli\welcome;
 
 function brainEven()
-{
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
+{   
+    $name = welcome();
     $maxMatch = 3;
 
     $hello = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -29,7 +28,7 @@ function brainEven()
         if ($ansver === $rightAnswer) {
             line("Correct!");
         } else {
-            return line("'%s' is wrong answer ;(. Correct answer was '%s'.", $ansver, $rightAnswer);
+            return line("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s", $ansver, $rightAnswer, $name);
         }
     }
     return line("Congratulations, {$name}!"); 
