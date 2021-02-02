@@ -2,8 +2,6 @@
 
 namespace Brain\Games\Engine;
 
-require __DIR__ . '/../vendor/autoload.php';
-
 use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\welcome;
@@ -23,7 +21,8 @@ function brainEngine($hello)
         if ($ansver == $rightAnswer) {
             line("Correct!");
         } else {
-            return line("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s", $ansver, $rightAnswer, $name);
+            $wronAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s";
+            return line("$wronAnswer", $ansver, $rightAnswer, $name);
         }
     }
     return line("Congratulations, {$name}!");

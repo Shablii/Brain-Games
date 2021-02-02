@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use function cli\line;
+use function cli\prompt;
+use function Brain\Games\Engine\brainEngine;
+use function Brain\Games\Cli\welcome;
+
+$hello = 'Find the greatest common divisor of given numbers.';
+
+function question()
+{
+    $randomNum1 = rand(1, 10);
+        $randomNum2 = rand(1, 10);
+        $question = "{$randomNum1} {$randomNum2}";
+        return $question;
+}
+
+function rightAnsver($question)
+{
+    [$randomNum1, $randomNum2] = explode(' ', $question);
+    $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1 ;
+
+    for ($i = $minNum; $i >= 1; $i--) {
+        if (!($randomNum1 % $i) && !(($randomNum2 % $i))) {
+            $rightAnswer = $i;
+            return $rightAnswer;
+        } 
+    }
+}
+
+brainEngine($hello);
