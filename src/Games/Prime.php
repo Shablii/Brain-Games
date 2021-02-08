@@ -12,10 +12,25 @@ function prime()
     $maxMatch = 3;
     $question = [];
     $rightAnswer = [];
+
     for ($i = 1; $i <= $maxMatch; $i++) {
-        $question[] = rand(1, 50);
-        $rightAnswer[] = (gmp_prob_prime($question[$i - 1])) ? "yes" : "no";
+        $randomNum = rand(1, 50);
+        $question[] = $randomNum;
+
+        if ($randomNum <= 2) {
+            $rightAnswer = "yes";
+        } else {
+            for ($x = 2; $x <= round(sqrt($randomNum)); $x++) {
+                if (($randomNum % $x)) {
+                    $rightAnswer = "yes";
+                } else {
+                    $rightAnswer = "no";
+                    break;
+                }
+            }
+        }
+        $rightAnswers[] = $rightAnswer;
     }
-    $result = array_combine($question, $rightAnswer);
+    $result = array_combine($question, $rightAnswers);
     brainEngine($result, $hello);
 }
