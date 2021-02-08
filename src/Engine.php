@@ -17,7 +17,7 @@ function brainEngine($result, $hello)
         if ($ansver == $rightAnswer) {
             line("Correct!");
         } else {
-            $wronAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s";
+            $wronAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
             return line("$wronAnswer", $ansver, $rightAnswer, $name);
         }
     }
