@@ -6,16 +6,12 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\welcome;
 
-function brainEngine($hello)
+function brainEngine($result, $hello)
 {
     $name = welcome();
-    $maxMatch = 3;
-
     line($hello);
 
-    for ($i = 1; $i <= $maxMatch; $i++) {
-        $question = question();
-        $rightAnswer = rightAnsver($question);
+    foreach ($result as $question => $rightAnswer) {
         $ansver = prompt("Question: {$question}");
 
         if ($ansver == $rightAnswer) {

@@ -3,34 +3,6 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use function cli\line;
-use function cli\prompt;
-use function Brain\Games\Cli\welcome;
+use function Brain\Games\Games\Even\even;
 
-function brainEven()
-{   
-    $name = welcome();
-    $maxMatch = 3;
-
-    $hello = 'Answer "yes" if the number is even, otherwise answer "no".';
-    line($hello);
-
-    for ($i = 1; $i <= $maxMatch; $i++) {
-        $randomNum = rand(1, 20);
-        $ansver = prompt("Question: {$randomNum}");
-        $rightAnswer = '';
-        if ($randomNum % 2) {
-            $rightAnswer = "no";
-        } else {
-            $rightAnswer = "yes";
-        }
-
-        if ($ansver === $rightAnswer) {
-            line("Correct!");
-        } else {
-            return line("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s", $ansver, $rightAnswer, $name);
-        }
-    }
-    return line("Congratulations, {$name}!"); 
-}
-brainEven();
+even();

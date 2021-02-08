@@ -3,7 +3,6 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use function Brain\Games\Games\Progression\progression;
+use function Brain\Games\Cli\welcome;
 
-progression();
-
+welcome();
