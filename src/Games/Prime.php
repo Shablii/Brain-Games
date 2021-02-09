@@ -15,7 +15,7 @@ function prime(): string
     $rightAnswer = '';
 
     for ($i = 1; $i <= $maxMatch; $i++) {
-        $randomNum = rand(1, 50);
+        $randomNum = rand(1, 51);
 
         if (in_array($randomNum, $question, true)) {
             $i--;
@@ -25,6 +25,8 @@ function prime(): string
 
         if ($randomNum <= 2) {
             $rightAnswer = "yes";
+        } elseif ($randomNum % 2 == 0) {
+            $rightAnswer = "no";
         } else {
             for ($x = 2; $x <= round(sqrt($randomNum)); $x++) {
                 if (($randomNum % $x !== 0)) {
