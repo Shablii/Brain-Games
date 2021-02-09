@@ -20,7 +20,7 @@ function even(): string
             $randomNum1 += $randomNum2;
         }
         $question[] = $randomNum1;
-        if ($randomNum1 % 2) {
+        if ($randomNum1 % 2 !== 0) {
             $rightAnswer[] = "no";
         } else {
             $rightAnswer[] = "yes";

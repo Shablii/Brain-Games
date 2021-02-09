@@ -27,7 +27,7 @@ function prime(): string
             $rightAnswer = "yes";
         } else {
             for ($x = 2; $x <= round(sqrt($randomNum)); $x++) {
-                if (($randomNum % $x)) {
+                if (($randomNum % $x == 0)) {
                     $rightAnswer = "yes";
                 } else {
                     $rightAnswer = "no";
