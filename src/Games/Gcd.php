@@ -16,7 +16,7 @@ function gcd(): string
     for ($i = 1; $i <= $maxMatch; $i++) {
         $randomNum1 = rand(1, 10);
         $randomNum2 = rand(1, 10);
-        if (in_array("{$randomNum1} {$randomNum2}", $question, true)) {
+        if (in_array("{$randomNum1} {$randomNum2}", $question)) {
             $randomNum2 += $randomNum1;
         }
 
@@ -24,7 +24,7 @@ function gcd(): string
 
         $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1 ;
         while ($minNum >= 1) {
-            if (($randomNum1 % $minNum) && ($randomNum2 % $minNum) !== 0) {
+            if ((!($randomNum1 % $minNum) && !(($randomNum2 % $minNum))) > 0) {
                 $rightAnswer[] = $minNum;
                 break;
             }
