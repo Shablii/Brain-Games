@@ -16,8 +16,7 @@ function prime(): string
     for ($i = 1; $i <= $maxMatch; $i++) {
         $randomNum = rand(1, 50);
 
-
-        if (in_array($randomNum, $question)) {
+        if (in_array($randomNum, $question, true)) {
             $i--;
         }
 

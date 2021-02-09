@@ -12,6 +12,7 @@ function progression(): string
     $maxMatch = 3;
     $rightAnswer = [];
     $question = [];
+    $questions = [];
     for ($j = 1; $j <= $maxMatch; $j++) {
         $randomNum1 = rand(1, 10);
         $randomNum2 = rand(5, 10);

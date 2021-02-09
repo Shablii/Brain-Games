@@ -23,5 +23,5 @@ function brainEngine(array $result, string $hello): string
     }
     $tipe = printf("Congratulations, {$name}!");
     //var_dump($tipe);
-    return $tipe;
+    return  $tipe;
 }
