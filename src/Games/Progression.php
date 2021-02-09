@@ -29,5 +29,5 @@ function progression(): string
         unset($question);
     }
     $result = array_combine($questions, $rightAnswer);
-    brainEngine($result, $hello);
+    return brainEngine($result, $hello);
 }

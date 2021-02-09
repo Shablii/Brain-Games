@@ -11,7 +11,7 @@ function calc(): string
     $hello = 'What is the result of the expression?';
 
     $maxMatch = 3;
-    $question = [];
+    $questions = [];
     $rightAnswer = [];
 
     for ($i = 1; $i <= $maxMatch; $i++) {
@@ -28,5 +28,6 @@ function calc(): string
         eval('$rightAnswer[] = ' . $question . ';');
     }
     $result = array_combine($questions, $rightAnswer);
-    brainEngine($result, $hello);
+    //var_dump($result);
+    return brainEngine($result, $hello);
 }

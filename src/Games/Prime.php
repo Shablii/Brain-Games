@@ -32,5 +32,5 @@ function prime(): string
         $rightAnswers[] = $rightAnswer;
     }
     $result = array_combine($question, $rightAnswers);
-    brainEngine($result, $hello);
+    return brainEngine($result, $hello);
 }

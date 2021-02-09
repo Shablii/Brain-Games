@@ -24,5 +24,5 @@ function even(): string
     }
 
     $result = array_combine($question, $rightAnswer);
-    brainEngine($result, $hello);
+     return brainEngine($result, $hello);
 }

@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\welcome;
 
-function brainEngine($result, $hello): string
+function brainEngine($result, $hello)
 {
     $name = welcome();
     line($hello);
@@ -18,8 +18,10 @@ function brainEngine($result, $hello): string
             line("Correct!");
         } else {
             $wronAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
-            return line("$wronAnswer", $ansver, $rightAnswer, $name);
+            return (string) line("$wronAnswer", $ansver, $rightAnswer, $name);
         }
     }
-    return line("Congratulations, {$name}!");
+    $tipe = printf("Congratulations, {$name}!");
+    //var_dump($tipe);
+    return $tipe;
 }
