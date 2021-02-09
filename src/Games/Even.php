@@ -14,9 +14,13 @@ function even()
     $rightAnswer = [];
 
     for ($i = 1; $i <= $maxMatch; $i++) {
-        $randomNum = rand(1, 20);
-        $question[] = $randomNum;
-        $rightAnswer[] = ($randomNum % 2) ? "no" : "yes";
+        $randomNum1 = rand(1, 20);
+        $randomNum2 = rand(1, 5);
+        if (in_array($question, $question)) {
+            $randomNum1 += $randomNum2;
+        }
+        $question[] = $randomNum1;
+        $rightAnswer[] = ($randomNum1 % 2) ? "no" : "yes";
     }
 
     $result = array_combine($question, $rightAnswer);
