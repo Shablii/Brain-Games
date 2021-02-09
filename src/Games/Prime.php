@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Engine\brainEngine;
 
-function prime()
+function prime(): string
 {
     $hello = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $maxMatch = 3;

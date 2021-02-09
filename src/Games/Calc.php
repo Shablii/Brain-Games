@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Engine\brainEngine;
 
-function calc()
+function calc(): string
 {
     $hello = 'What is the result of the expression?';
 
@@ -20,6 +20,9 @@ function calc()
         $symbols = ["+", "*", "-"];
         $symbol = $symbols[rand(0, 2)];
         $question = "{$randomNum1} {$symbol} {$randomNum2}";
+        if (in_array($question, $questions)) {
+            $i--;
+        }
         $questions[] = $question;
 
         eval('$rightAnswer[] = ' . $question . ';');

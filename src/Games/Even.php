@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Engine\brainEngine;
 
-function even()
+function even(): string
 {
     $hello = 'Answer "yes" if the number is even, otherwise answer "no".';
     $maxMatch = 3;

@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Engine\brainEngine;
 
-function progression()
+function progression(): string
 {
     $hello = 'Find the greatest common divisor of given numbers.';
     $maxMatch = 3;
