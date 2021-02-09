@@ -20,7 +20,7 @@ function calc(): string
         $symbols = ["+", "*", "-"];
         $symbol = $symbols[rand(0, 2)];
         $question = "{$randomNum1} {$symbol} {$randomNum2}";
-        if (in_array($question, $questions)) {
+        if (in_array($question, $questions, false)) {
             $i--;
         }
         $questions[] = $question;

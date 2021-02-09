@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\welcome;
 
-function brainEngine($result, $hello)
+function brainEngine(array $result, string $hello): string
 {
     $name = welcome();
     line($hello);
