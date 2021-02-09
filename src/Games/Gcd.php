@@ -16,15 +16,16 @@ function gcd(): string
     for ($i = 1; $i <= $maxMatch; $i++) {
         $randomNum1 = rand(1, 10);
         $randomNum2 = rand(1, 10);
-        if (in_array("{$randomNum1} {$randomNum2}", $question)) {
+        if (in_array("{$randomNum1} {$randomNum2}", $question, true)) {
             $randomNum2 += $randomNum1;
         }
 
         $question[] = "{$randomNum1} {$randomNum2}";
 
         $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1 ;
+        $true = !($randomNum1 % $minNum) && !(($randomNum2 % $minNum));
         while ($minNum >= 1) {
-            if ((!($randomNum1 % $minNum) && !(($randomNum2 % $minNum))) > 0) {
+            if ($true > 0) {
                 $rightAnswer[] = $minNum;
                 break;
             }
