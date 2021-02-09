@@ -12,6 +12,7 @@ function prime(): string
     $maxMatch = 3;
     $question = [];
     $rightAnswers = [];
+    $rightAnswer = '';
 
     for ($i = 1; $i <= $maxMatch; $i++) {
         $randomNum = rand(1, 50);
