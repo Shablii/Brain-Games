@@ -10,11 +10,10 @@ function prime(): string
 {
     $hello = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $maxMatch = 3;
-
+    $question = [];
     $rightAnswers = [];
 
     for ($i = 1; $i <= $maxMatch; $i++) {
-        $question = [];
         $randomNum = rand(1, 50);
 
         if (in_array($randomNum, $question, true)) {
