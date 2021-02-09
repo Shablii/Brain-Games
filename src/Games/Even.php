@@ -16,7 +16,7 @@ function even(): string
     for ($i = 1; $i <= $maxMatch; $i++) {
         $randomNum1 = rand(1, 20);
         $randomNum2 = rand(1, 5);
-        if (in_array($question, $question)) {
+        if (in_array($randomNum1, $question)) {
             $randomNum1 += $randomNum2;
         }
         $question[] = $randomNum1;
