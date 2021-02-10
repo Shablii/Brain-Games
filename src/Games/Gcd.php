@@ -24,7 +24,7 @@ function gcd(): string
 
         $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1 ;
         while ($minNum >= 1) {
-            $true = !($randomNum1 % $minNum) && !(($randomNum2 % $minNum));
+            $true = ($randomNum1 % $minNum) === 0 && (($randomNum2 % $minNum) === 0);
             if ($true) {
                 $rightAnswer[] = $minNum;
                 break;
