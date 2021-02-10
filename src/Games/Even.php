@@ -25,7 +25,6 @@ function even(): string
         } else {
             $rightAnswer[] = "yes";
         }
-        //$rightAnswer[] = ($randomNum1 % 2) ? "no" : "yes";
     }
 
     $result = array_combine($question, $rightAnswer);

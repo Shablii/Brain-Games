@@ -11,8 +11,8 @@ function progression(): string
     $hello = 'Find the greatest common divisor of given numbers.';
     $maxMatch = 3;
     $rightAnswer = [];
-
     $questions = [];
+
     for ($j = 1; $j <= $maxMatch; $j++) {
         $randomNum1 = rand(1, 10);
         $randomNum2 = rand(5, 10);
@@ -28,7 +28,6 @@ function progression(): string
         $question[$randomProgressionNum] = "..";
 
         $questions[] = implode(" ", $question);
-        //unset($question);
     }
     $result = array_combine($questions, $rightAnswer);
     return brainEngine($result, $hello);

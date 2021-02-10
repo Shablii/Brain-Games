@@ -28,6 +28,5 @@ function calc(): string
         eval('$rightAnswer[] = ' . $question . ';');
     }
     $result = array_combine($questions, $rightAnswer);
-    //var_dump($result);
     return brainEngine($result, $hello);
 }

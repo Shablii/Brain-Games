@@ -25,11 +25,11 @@ function prime(): string
 
         if ($randomNum <= 2) {
             $rightAnswer = "yes";
-        } elseif ($randomNum % 2 == 0) {
+        } elseif ($randomNum % 2 === 0) {
             $rightAnswer = "no";
         } else {
-            for ($x = 2; $x <= round(sqrt($randomNum)); $x++) {
-                if (($randomNum % $x !== 0)) {
+            for ($j = 2; $j <= round(sqrt($randomNum)); $j++) {
+                if (($randomNum % $j !== 0)) {
                     $rightAnswer = "yes";
                 } else {
                     $rightAnswer = "no";

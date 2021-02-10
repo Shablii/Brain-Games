@@ -17,11 +17,9 @@ function brainEngine(array $result, string $hello): mixed
         if ($ansver == $rightAnswer) {
             line("Correct!");
         } else {
-            $wronAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
-            return (string) line("$wronAnswer", $ansver, $rightAnswer, $name);
+            $wrongAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
+            return (string) line("$wrongAnswer", $ansver, $rightAnswer, $name);
         }
     }
-    $tipe = printf("Congratulations, {$name}!");
-    //var_dump($tipe);
-    return  $tipe;
+    return line("Congratulations, {$name}!");
 }
