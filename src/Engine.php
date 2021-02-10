@@ -21,5 +21,5 @@ function brainEngine(array $result, string $hello): mixed
             return (string) line("$wrongAnswer", $ansver, $rightAnswer, $name);
         }
     }
-    return line("Congratulations, {$name}!");
+    return printf("Congratulations, {$name}!");
 }
