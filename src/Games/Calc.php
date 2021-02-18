@@ -9,7 +9,7 @@ function getQuestion(): string
          $symbols = ["+", "*", "-"];
          $symbol = $symbols[rand(0, 2)];
          $question = "{$randomNum1} {$symbol} {$randomNum2}";
-         return $question;
+         return (string) $question;
 }
 
 function getRightAnsver(string $question): int

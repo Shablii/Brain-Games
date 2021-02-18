@@ -29,13 +29,13 @@ function getRightAnsver(string $question): int
             if ($i >= 2) {
                 $index = (int) $progression[1] - (int) $progression[0];
                 $variable = $progression[$i - 1];
-                $rightAnswer = $variable + $index;
-                return $rightAnswer;
+                $rightAnswer = (int) $variable + (int) $index;
+                return (int) $rightAnswer;
             } else {
                 $index = (int) $progression[4] - (int) $progression[3];
                 $variable = $progression[$i + 1];
-                $rightAnswer = $variable - $index;
-                return $rightAnswer;
+                $rightAnswer = (int) $variable -  (int) $index;
+                return (int) $rightAnswer;
             }
         }
     }

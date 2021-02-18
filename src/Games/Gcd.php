@@ -16,8 +16,8 @@ function getRightAnsver(string $question): int
     $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1 ;
     while ($minNum >= 1) {
         if ($randomNum1 % $minNum === 0 && $randomNum2 % $minNum === 0) {
-            return $minNum;
+            return (int) $minNum;
         }
-        $minNum--;
+        (int) $minNum--;
     }
 }
