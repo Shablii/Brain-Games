@@ -15,7 +15,7 @@ function getQuestion(): string
 function getRightAnsver(string $question): int
 {
     $Answer = explode(' ', $question);
-    switch ((int) $Answer[1]) {
+    switch ($Answer[1]) {
         case "+":
             return (int) $Answer[0] +  (int) $Answer[2];
         case "*":
