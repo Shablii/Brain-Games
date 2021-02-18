@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\welcome;
 
-function brainEngine($getQuestion, $getRightAnswer, $hello): mixed
+function brainEngine(callable $getQuestion, callable $getRightAnswer, string $hello): mixed
 {
     $name = welcome();
     line($hello);
