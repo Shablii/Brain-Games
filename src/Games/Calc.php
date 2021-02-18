@@ -15,6 +15,7 @@ function getQuestion(): string
 function getRightAnsver(string $question): int
 {
     $Answer = explode(' ', $question);
+    $RightAnsver = '';
     switch ($Answer[1]) {
         case "+":
             $RightAnsver = (int) $Answer[0] +  (int) $Answer[2];
