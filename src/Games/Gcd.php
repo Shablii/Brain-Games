@@ -2,35 +2,22 @@
 
 namespace Brain\Games\Games\Gcd;
 
-use function cli\line;
-use function cli\prompt;
-use function Brain\Games\Engine\brainEngine;
-
-function gcd(): string
+function getQuestion(): string
 {
-    $hello = 'Find the greatest common divisor of given numbers.';
-    $maxMatch = 3;
-    $question = [];
-    $rightAnswer = [];
+    $randomNum1 = rand(1, 10);
+    $randomNum2 = rand(1, 10);
 
-    for ($i = 1; $i <= $maxMatch; $i++) {
-        $randomNum1 = rand(1, 10);
-        $randomNum2 = rand(1, 10);
-        if (in_array("{$randomNum1} {$randomNum2}", $question, true)) {
-            $randomNum2 += $randomNum1;
+    return "{$randomNum1} {$randomNum2}";
+}
+
+function getRightAnsver($question): int
+{
+    [$randomNum1, $randomNum2] = explode(" ", $question);
+    $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1 ;
+    while ($minNum >= 1) {
+        if ($randomNum1 % $minNum === 0 && $randomNum2 % $minNum === 0) {
+            return $minNum;
         }
-
-        $question[] = "{$randomNum1} {$randomNum2}";
-
-        $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1 ;
-        while ($minNum >= 1) {
-            if ($randomNum1 % $minNum === 0 && $randomNum2 % $minNum === 0) {
-                $rightAnswer[] = $minNum;
-                break;
-            }
-            $minNum--;
-        }
+        $minNum--;
     }
-    $result = array_combine($question, $rightAnswer);
-    return brainEngine($result, $hello);
 }

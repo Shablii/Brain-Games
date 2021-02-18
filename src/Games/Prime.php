@@ -2,43 +2,23 @@
 
 namespace Brain\Games\Games\Prime;
 
-use function cli\line;
-use function cli\prompt;
-use function Brain\Games\Engine\brainEngine;
-
-function prime(): string
+function getQuestion(): int
 {
-    $hello = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    $maxMatch = 3;
-    $question = [];
-    $rightAnswers = [];
-    $rightAnswer = '';
+    return rand(1, 54);
+}
 
-    for ($i = 1; $i <= $maxMatch; $i++) {
-        $randomNum = rand(1, 51);
-
-        if (in_array($randomNum, $question, true)) {
-            $i--;
-        }
-
-        $question[] = $randomNum;
-
-        if ($randomNum <= 2) {
-            $rightAnswer = "yes";
-        } elseif ($randomNum % 2 === 0) {
-            $rightAnswer = "no";
-        } else {
-            for ($j = 2; $j <= round(sqrt($randomNum)); $j++) {
-                if (($randomNum % $j !== 0)) {
-                    $rightAnswer = "yes";
-                } else {
-                    $rightAnswer = "no";
-                    break;
-                }
+function getRightAnsver($question): string
+{
+    if ($question <= 2) {
+        return "yes";
+    } elseif ($question % 2 === 0) {
+        return "no";
+    } else {
+        for ($i = 2; $i <= round(sqrt($question)); $i++) {
+            if (($question % $i === 0)) {
+                return "no";
             }
         }
-        $rightAnswers[] = $rightAnswer;
+        return "yes";
     }
-    $result = array_combine($question, $rightAnswers);
-    return brainEngine($result, $hello);
 }

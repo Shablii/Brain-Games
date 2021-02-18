@@ -3,6 +3,12 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use function Brain\Games\Games\Even\even;
+use function Brain\Games\Games\Even\getQuestion;
+use function Brain\Games\Games\Even\getRightAnsver;
+use function Brain\Games\Engine\brainEngine;
 
-even();
+$question = fn() => getQuestion();
+$rightAnsver = fn($question) => getRightAnsver($question);
+$hello = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+brainEngine($question, $rightAnsver, $hello);

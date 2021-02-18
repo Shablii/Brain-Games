@@ -3,6 +3,12 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use function Brain\Games\Games\Prime\prime;
+use function Brain\Games\Games\Prime\getQuestion;
+use function Brain\Games\Games\Prime\getRightAnsver;
+use function Brain\Games\Engine\brainEngine;
 
-prime();
+$question = fn() => getQuestion();
+$rightAnsver = fn($question) => getRightAnsver($question);
+$hello = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+brainEngine($question, $rightAnsver, $hello);

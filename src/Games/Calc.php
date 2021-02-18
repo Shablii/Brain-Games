@@ -2,31 +2,25 @@
 
 namespace Brain\Games\Games\Calc;
 
-use function cli\line;
-use function cli\prompt;
-use function Brain\Games\Engine\brainEngine;
-
-function calc(): string
+function getQuestion(): string
 {
-    $hello = 'What is the result of the expression?';
+     $randomNum1 = rand(5, 10);
+         $randomNum2 = rand(1, 5);
+         $symbols = ["+", "*", "-"];
+         $symbol = $symbols[rand(0, 2)];
+         $question = "{$randomNum1} {$symbol} {$randomNum2}";
+         return $question;
+}
 
-    $maxMatch = 3;
-    $questions = [];
-    $rightAnswer = [];
-
-    for ($i = 1; $i <= $maxMatch; $i++) {
-        $randomNum1 = rand(5, 10);
-        $randomNum2 = rand(1, 5);
-        $symbols = ["+", "*", "-"];
-        $symbol = $symbols[rand(0, 2)];
-        $question = "{$randomNum1} {$symbol} {$randomNum2}";
-        if (in_array($question, $questions, true)) {
-            $i--;
-        }
-        $questions[] = $question;
-
-        eval('$rightAnswer[] = ' . $question . ';');
+function getRightAnsver($question): int
+{
+    $Answer = explode(' ', $question);
+    switch ($Answer[1]) {
+        case "+":
+            return $Answer[0] + $Answer[2];
+        case "*":
+            return $Answer[0] * $Answer[2];
+        case "-":
+            return $Answer[0] - $Answer[2];
     }
-    $result = array_combine($questions, $rightAnswer);
-    return brainEngine($result, $hello);
 }

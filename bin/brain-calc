@@ -3,6 +3,13 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use function Brain\Games\Games\Calc\calc;
+use function Brain\Games\Games\Calc\getQuestion;
+use function Brain\Games\Games\Calc\getRightAnsver;
+use function Brain\Games\Engine\brainEngine;
 
-calc();
+$question = fn() => getQuestion();
+$rightAnsver = fn($question) => getRightAnsver($question);
+$hello = 'What is the result of the expression?';
+
+brainEngine($question, $rightAnsver, $hello);
+
