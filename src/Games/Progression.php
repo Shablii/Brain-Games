@@ -18,7 +18,7 @@ function getQuestion(): string
     return implode(" ", $question);
 }
 
-function getRightAnsver(string $question): int
+function getRightAnsver(string $question): mixed
 {
     $progression = explode(' ', $question);
     $variable = '';

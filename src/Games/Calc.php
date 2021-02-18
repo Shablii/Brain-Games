@@ -17,10 +17,14 @@ function getRightAnsver(string $question): int
     $Answer = explode(' ', $question);
     switch ($Answer[1]) {
         case "+":
-            return (int) $Answer[0] +  (int) $Answer[2];
+            $RightAnsver = (int) $Answer[0] +  (int) $Answer[2];
+            break;
         case "*":
-            return (int) $Answer[0] * (int) $Answer[2];
+            $RightAnsver = (int) $Answer[0] * (int) $Answer[2];
+            break;
         case "-":
-            return (int) $Answer[0] - (int) $Answer[2];
+            $RightAnsver = (int) $Answer[0] - (int) $Answer[2];
+            break;
     }
+    return $RightAnsver;
 }
