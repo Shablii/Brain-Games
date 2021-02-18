@@ -7,7 +7,7 @@ function getQuestion(): int
     return rand(1, 20);
 }
 
-function getRightAnsver($question): string
+function getRightAnsver(int $question): string
 {
     if ($question % 2 !== 0) {
         return "no";

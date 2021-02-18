@@ -6,11 +6,11 @@ function getQuestion(): string
 {
     $randomNum1 = rand(1, 10);
     $randomNum2 = rand(1, 10);
-
-    return "{$randomNum1} {$randomNum2}";
+    $question = "{$randomNum1} {$randomNum2}";
+    return $question;
 }
 
-function getRightAnsver($question): int
+function getRightAnsver(string $question): int
 {
     [$randomNum1, $randomNum2] = explode(" ", $question);
     $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1 ;

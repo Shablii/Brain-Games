@@ -18,7 +18,7 @@ function getQuestion(): string
     return implode(" ", $question);
 }
 
-function getRightAnsver($question): int
+function getRightAnsver(string $question): int
 {
     $progression = explode(' ', $question);
     $variable = '';
@@ -27,12 +27,12 @@ function getRightAnsver($question): int
     for ($i = 0; $i < count($progression); $i++) {
         if ($progression[$i] === "..") {
             if ($i >= 2) {
-                $index = $progression[1] - $progression[0];
+                $index = (int) $progression[1] - (int) $progression[0];
                 $variable = $progression[$i - 1];
                 $rightAnswer = $variable + $index;
                 return $rightAnswer;
             } else {
-                $index = $progression[4] - $progression[3];
+                $index = (int) $progression[4] - (int) $progression[3];
                 $variable = $progression[$i + 1];
                 $rightAnswer = $variable - $index;
                 return $rightAnswer;

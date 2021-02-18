@@ -7,7 +7,7 @@ function getQuestion(): int
     return rand(1, 54);
 }
 
-function getRightAnsver($question): string
+function getRightAnsver(int $question): string
 {
     if ($question <= 2) {
         return "yes";

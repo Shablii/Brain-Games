@@ -12,15 +12,15 @@ function getQuestion(): string
          return $question;
 }
 
-function getRightAnsver($question): int
+function getRightAnsver(string $question): int
 {
     $Answer = explode(' ', $question);
     switch ($Answer[1]) {
         case "+":
-            return $Answer[0] + $Answer[2];
+            return (int) $Answer[0] +  (int) $Answer[2];
         case "*":
-            return $Answer[0] * $Answer[2];
+            return (int) $Answer[0] * (int) $Answer[2];
         case "-":
-            return $Answer[0] - $Answer[2];
+            return (int) $Answer[0] - (int) $Answer[2];
     }
 }
