@@ -22,5 +22,5 @@ function getRightAnsver(string $question): int
         }
         $minNum--;
     }
-    return $rightAnsver;
+    return (int) $rightAnsver;
 }

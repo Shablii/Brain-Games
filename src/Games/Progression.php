@@ -30,13 +30,14 @@ function getRightAnsver(string $question): mixed
                 $index = (int) $progression[1] - (int) $progression[0];
                 $variable = $progression[$i - 1];
                 $rightAnswer = (int) $variable + $index;
-                return $rightAnswer;
+                break;
             } else {
                 $index = (int) $progression[4] - (int) $progression[3];
                 $variable = $progression[$i + 1];
                 $rightAnswer = (int) $variable -  $index;
-                return $rightAnswer;
+                break;
             }
         }
     }
+    return $rightAnswer;
 }

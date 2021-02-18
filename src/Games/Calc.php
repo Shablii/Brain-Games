@@ -27,5 +27,5 @@ function getRightAnsver(string $question): int
             $RightAnsver = (int) $Answer[0] - (int) $Answer[2];
             break;
     }
-    return $RightAnsver;
+    return (int) $RightAnsver;
 }
