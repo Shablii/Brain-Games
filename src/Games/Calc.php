@@ -9,13 +9,13 @@ function getQuestion(): string
          $symbols = ["+", "*", "-"];
          $symbol = $symbols[rand(0, 2)];
          $question = "{$randomNum1} {$symbol} {$randomNum2}";
-         return (string) $question;
+         return $question;
 }
 
 function getRightAnsver(string $question): int
 {
     $Answer = explode(' ', $question);
-    switch ($Answer[1]) {
+    switch ((int) $Answer[1]) {
         case "+":
             return (int) $Answer[0] +  (int) $Answer[2];
         case "*":

@@ -13,8 +13,8 @@ function getQuestion(): string
 function getRightAnsver(string $question): int
 {
     [$randomNum1, $randomNum2] = explode(" ", $question);
-    $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1 ;
-    while ($minNum >= 1) {
+    $minNum = ($randomNum1 >= $randomNum2) ? (int) $randomNum2 : (int) $randomNum1 ;
+    while ((int) $minNum >= 1) {
         if ($randomNum1 % $minNum === 0 && $randomNum2 % $minNum === 0) {
             return (int) $minNum;
         }
