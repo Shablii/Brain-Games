@@ -9,10 +9,10 @@ function getQuestion(): int
 
 function getRightAnsver(int $question): string
 {
-    if ($question <= 2) {
-        return "yes";
-    } elseif ($question % 2 === 0) {
+    if ($question % 2 === 0 || $question === 1) {
         return "no";
+    } elseif ($question <= 2) {
+        return "yes";
     } else {
         for ($i = 2; $i <= round(sqrt($question)); $i++) {
             if (($question % $i === 0)) {
