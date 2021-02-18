@@ -23,6 +23,7 @@ function getRightAnsver(string $question): mixed
     $progression = explode(' ', $question);
     $variable = '';
     $index = '';
+    $rightAnswer = '';
     $maxCounter = count($progression);
     for ($i = 0; $i < $maxCounter; $i++) {
         if ($progression[$i] === "..") {

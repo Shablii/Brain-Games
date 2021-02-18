@@ -10,7 +10,7 @@ function getQuestion(): string
     return $question;
 }
 
-function getRightAnsver(string $question): int
+function getRightAnsver(string $question): mixed
 {
     $rightAnsver = "";
     [$randomNum1, $randomNum2] = explode(" ", $question);
@@ -22,5 +22,5 @@ function getRightAnsver(string $question): int
         }
         $minNum--;
     }
-    return (int) $rightAnsver;
+    return $rightAnsver;
 }

@@ -12,7 +12,7 @@ function getQuestion(): string
          return $question;
 }
 
-function getRightAnsver(string $question): int
+function getRightAnsver(string $question): mixed
 {
     $Answer = explode(' ', $question);
     $RightAnsver = '';
@@ -27,5 +27,5 @@ function getRightAnsver(string $question): int
             $RightAnsver = (int) $Answer[0] - (int) $Answer[2];
             break;
     }
-    return (int) $RightAnsver;
+    return $RightAnsver;
 }
