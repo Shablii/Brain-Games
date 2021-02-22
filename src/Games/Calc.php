@@ -2,30 +2,37 @@
 
 namespace Brain\Games\Games\Calc;
 
-function getQuestion(): string
-{
-     $randomNum1 = rand(5, 10);
-         $randomNum2 = rand(1, 5);
-         $symbols = ["+", "*", "-"];
-         $symbol = $symbols[rand(0, 2)];
-         $question = "{$randomNum1} {$symbol} {$randomNum2}";
-         return $question;
-}
+use function Brain\Games\Engine\brainEngine;
 
-function getRightAnsver(string $question): mixed
+function StartGame()
 {
-    $Answer = explode(' ', $question);
-    $RightAnsver = '';
-    switch ($Answer[1]) {
-        case "+":
-            $RightAnsver = (int) $Answer[0] +  (int) $Answer[2];
-            break;
-        case "*":
-            $RightAnsver = (int) $Answer[0] * (int) $Answer[2];
-            break;
-        case "-":
-            $RightAnsver = (int) $Answer[0] - (int) $Answer[2];
-            break;
-    }
-    return $RightAnsver;
+    $question = function () {
+        $randomNum1 = rand(5, 10);
+        $randomNum2 = rand(1, 5);
+        $symbols = ["+", "*", "-"];
+        $symbol = $symbols[rand(0, 2)];
+        $question = "{$randomNum1} {$symbol} {$randomNum2}";
+        return $question;
+    };
+
+    $rightAnswer = function ($question) {
+        $Answer = explode(' ', $question);
+        $RightAnswer = '';
+        switch ($Answer[1]) {
+            case "+":
+                $RightAnswer = (int) $Answer[0] +  (int) $Answer[2];
+                break;
+            case "*":
+                $RightAnswer = (int) $Answer[0] * (int) $Answer[2];
+                break;
+            case "-":
+                $RightAnswer = (int) $Answer[0] - (int) $Answer[2];
+                break;
+        }
+        return $RightAnswer;
+    };
+
+    $hello = 'What is the result of the expression?';
+
+    return brainEngine($question, $rightAnswer, $hello);
 }
