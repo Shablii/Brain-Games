@@ -9,7 +9,7 @@ function getQuestion(): string
     $randomNum2 = rand(5, 10);
 
     for ($i = $randomNum1; $i < ($randomNum1 + $randomNum2); $i++) {
-            $question[] = $i * $randomNum2;
+        $question[] = $i * $randomNum2;
     }
 
     $randomProgressionNum = rand(0, count($question) - 1);
