@@ -6,13 +6,13 @@ use function Brain\Games\Engine\brainEngine;
 
 function StartGame(): string
 {
-    $question = function ($str = null) {
+    $question = function () {
         $randomNum1 = rand(5, 10);
         $randomNum2 = rand(1, 5);
         $operators = ["+", "*", "-"];
         $operator = $operators[rand(0, 2)];
         $question = "{$randomNum1} {$operator} {$randomNum2}";
-        return $question;
+        return (string) $question;
     };
 
     $rightAnswer = function ($question) {
