@@ -2,23 +2,32 @@
 
 namespace Brain\Games\Games\Prime;
 
-function getQuestion(): int
-{
-    return rand(1, 54);
-}
+use function Brain\Games\Engine\brainEngine;
 
-function getRightAnsver(int $question): string
+function StartGame(): string
 {
-    if ($question % 2 === 0 || $question === 1) {
-        return "no";
-    } elseif ($question <= 2) {
-        return "yes";
-    } else {
-        for ($i = 2; $i <= round(sqrt($question)); $i++) {
-            if (($question % $i === 0)) {
-                return "no";
+
+    $question = function () {
+        return rand(1, 55);
+    };
+
+    function getPime($question)
+    {
+        if ($question <= 1) {
+            return false;
+        } else {
+            for ($i = 3; $i <= round(sqrt($question)); $i++) {
+                if (($question % $i === 0)) {
+                    return false;
+                }
             }
         }
-        return "yes";
+        return true;
     }
+
+    $rightAnswer = fn($question) => getPime($question) ? "yes" : "no";
+
+    $hello = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+    return brainEngine($question, $rightAnswer, $hello);
 }

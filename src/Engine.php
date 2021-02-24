@@ -11,9 +11,9 @@ function brainEngine(callable $getQuestion, callable $getRightAnswer, string $he
     $name = welcome();
     line($hello);
 
-    $maxMatch = 3;
+    define("RAUND", 2);
 
-    for ($i = 1; $i <= $maxMatch; $i++) {
+    for ($i = 0; $i <= RAUND; $i++) {
         $question = $getQuestion();
         $rightAnswer = $getRightAnswer($question);
 
