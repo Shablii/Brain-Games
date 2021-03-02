@@ -14,7 +14,7 @@ function StartGame(): string
     };
 
     $rightAnsver = function (string $question): int {
-        $rightAnswer = "";
+        $rightAnswer = 0;
         [$num1, $num2] = explode(" ", $question);
         $minNum = ($num1 >= $num2) ? (int) $num2 : (int) $num1 ;
         while ($minNum >= 1) {
@@ -24,7 +24,7 @@ function StartGame(): string
             }
             $minNum--;
         }
-        return (int) $rightAnswer;
+        return $rightAnswer;
     };
 
     $hello = 'Find the greatest common divisor of given numbers.';

@@ -26,7 +26,7 @@ function StartGame(): string
         $progression = explode(' ', $question);
         $variable = '';
         $index = '';
-        $rightAnswer = '';
+        $rightAnswer = 0;
         $maxCounter = count($progression);
         for ($i = 0; $i < $maxCounter; $i++) {
             if ($progression[$i] === "..") {
@@ -43,7 +43,7 @@ function StartGame(): string
                 }
             }
         }
-        return (int) $rightAnswer;
+        return $rightAnswer;
     };
 
     $hello = 'Find the greatest common divisor of given numbers.';
