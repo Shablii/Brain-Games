@@ -11,7 +11,7 @@ function StartGame(): string
         return rand(1, 55);
     };
 
-    function getPime(int $question): bool
+    function isPime(int $question): bool
     {
         if ($question <= 1) {
             return false;
@@ -25,7 +25,7 @@ function StartGame(): string
         return true;
     }
 
-    $rightAnswer = fn($question) => getPime($question) ? "yes" : "no";
+    $rightAnswer = fn($question) => isPime($question) ? "yes" : "no";
 
     $hello = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 

@@ -4,7 +4,7 @@ namespace Brain\Games\Games\Progression;
 
 use function Brain\Games\Engine\brainEngine;
 
-function StartGame()
+function StartGame(): string
 {
 
     $question = function (): string {
@@ -43,7 +43,7 @@ function StartGame()
                 }
             }
         }
-        return $rightAnswer;
+        return (int) $rightAnswer;
     };
 
     $hello = 'Find the greatest common divisor of given numbers.';

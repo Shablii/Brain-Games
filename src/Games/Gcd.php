@@ -24,7 +24,7 @@ function StartGame(): string
             }
             $minNum--;
         }
-        return $rightAnswer;
+        return (int) $rightAnswer;
     };
 
     $hello = 'Find the greatest common divisor of given numbers.';
