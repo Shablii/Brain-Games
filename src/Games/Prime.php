@@ -7,11 +7,11 @@ use function Brain\Games\Engine\brainEngine;
 function StartGame(): string
 {
 
-    $question = function () {
+    $question = function (): int {
         return rand(1, 55);
     };
 
-    function getPime($question)
+    function getPime(int $question): bool
     {
         if ($question <= 1) {
             return false;

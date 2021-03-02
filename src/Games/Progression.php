@@ -7,7 +7,7 @@ use function Brain\Games\Engine\brainEngine;
 function StartGame()
 {
 
-    $question = function () {
+    $question = function (): string {
         $question = [];
         $randomNum1 = rand(1, 10);
         $randomNum2 = rand(5, 10);
@@ -22,7 +22,7 @@ function StartGame()
         return implode(" ", $question);
     };
 
-    $rightAnswer = function (string $question) {
+    $rightAnswer = function (string $question): int {
         $progression = explode(' ', $question);
         $variable = '';
         $index = '';

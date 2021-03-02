@@ -12,7 +12,7 @@ function StartGame(): string
         $operators = ["+", "*", "-"];
         $operator = $operators[rand(0, 2)];
         $question = "{$randomNum1} {$operator} {$randomNum2}";
-        return (string) $question;
+        return $question;
     };
 
     $rightAnswer = function ($question) {
