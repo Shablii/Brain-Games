@@ -3,12 +3,6 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use function Brain\Games\Games\Progression\getQuestion;
-use function Brain\Games\Games\Progression\getRightAnsver;
-use function Brain\Games\Engine\brainEngine;
+use function Brain\Games\Games\Progression\StartGame;
 
-$question = fn() => getQuestion();
-$rightAnsver = fn($question) => getRightAnsver($question);
-$hello = 'Find the greatest common divisor of given numbers.';
-
-brainEngine($question, $rightAnsver, $hello);
+StartGame();

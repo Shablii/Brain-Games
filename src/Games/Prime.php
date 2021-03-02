@@ -16,7 +16,7 @@ function StartGame(): string
         if ($question <= 1) {
             return false;
         } else {
-            for ($i = 3; $i <= round(sqrt($question)); $i++) {
+            for ($i = 2; $i <= round(sqrt($question)); $i++) {
                 if (($question % $i === 0)) {
                     return false;
                 }

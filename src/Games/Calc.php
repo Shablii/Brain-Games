@@ -6,7 +6,7 @@ use function Brain\Games\Engine\brainEngine;
 
 function StartGame(): string
 {
-    $question = function () {
+    $question = function (): string {
         $randomNum1 = rand(5, 10);
         $randomNum2 = rand(1, 5);
         $operators = ["+", "*", "-"];
