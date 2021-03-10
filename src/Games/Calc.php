@@ -4,9 +4,11 @@ namespace Brain\Games\Games\Calc;
 
 use function Brain\Games\Engine\getResultGame;
 
+const QUESTION_FOR_TASK = 'What is the result of the expression?';
+
 function startGame(): string
 {
-    $getTaskGameCalculator = function () {
+    $getTaskGameCalculator = function (): array {
         $randomNum1 = rand(5, 10);
         $randomNum2 = rand(1, 5);
         $operators = ["+", "*", "-"];
@@ -25,12 +27,10 @@ function startGame(): string
                 $rightAnswer = $randomNum1 - $randomNum2;
                 break;
             default:
-                null;
+                return "error";
         }
         return ['question' => $question, 'rightAnswer' => $rightAnswer];
     };
 
-    $questionForTask = 'What is the result of the expression?';
-
-    return getResultGame($getTaskGameCalculator, $questionForTask);
+    return getResultGame($getTaskGameCalculator, QUESTION_FOR_TASK);
 }

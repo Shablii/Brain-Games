@@ -4,6 +4,8 @@ namespace Brain\Games\Games\Prime;
 
 use function Brain\Games\Engine\getResultGame;
 
+const QUESTION_FOR_TASK = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 function isPime(int $question): bool
 {
     if ($question <= 1) {
@@ -20,7 +22,7 @@ function isPime(int $question): bool
 
 function startGame(): string
 {
-    $getTaskGamePrime = function () {
+    $getTaskGamePrime = function (): array {
         $question = rand(1, 56);
 
         $rightAnswer = isPime($question) ? "yes" : "no";
@@ -28,7 +30,5 @@ function startGame(): string
         return ['question' => $question, 'rightAnswer' => $rightAnswer];
     };
 
-    $questionForTask = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-    return getResultGame($getTaskGamePrime, $questionForTask);
+    return getResultGame($getTaskGamePrime, QUESTION_FOR_TASK);
 }

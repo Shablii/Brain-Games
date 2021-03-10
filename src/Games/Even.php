@@ -4,14 +4,14 @@ namespace Brain\Games\Games\Even;
 
 use function Brain\Games\Engine\getResultGame;
 
-function isEven($num): bool
+function isEven(int $num): bool
 {
     return ($num % 2 !== 0) ? false : true;
 }
 
-function StartGame(): string
+function startGame(): string
 {
-    $getTaskGameEven = function () {
+    $getTaskGameEven = function (): array {
         $question = rand(1, 20);
 
         $rightAnswer = isEven($question) ? "yes" : "no";

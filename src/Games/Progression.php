@@ -4,9 +4,11 @@ namespace Brain\Games\Games\Progression;
 
 use function Brain\Games\Engine\getResultGame;
 
+const QUESTION_FOR_TASK = 'Find the greatest common divisor of given numbers.';
+
 function startGame(): string
 {
-    $getTaskGameProgression = function () {
+    $getTaskGameProgression = function (): array {
         $progression = [];
         $randomNum1 = rand(1, 10);
         $randomNum2 = rand(5, 10);
@@ -24,7 +26,5 @@ function startGame(): string
         return ['question' => $question, 'rightAnswer' => $rightAnswer];
     };
 
-    $questionForTask = 'Find the greatest common divisor of given numbers.';
-
-    return getResultGame($getTaskGameProgression, $questionForTask);
+    return getResultGame($getTaskGameProgression, QUESTION_FOR_TASK);
 }
