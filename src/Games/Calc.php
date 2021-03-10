@@ -8,7 +8,7 @@ const QUESTION_FOR_TASK = 'What is the result of the expression?';
 
 function startGame(): string
 {
-    $getTaskGameCalculator = function (): array {
+    $getTaskGameCalculator = function (): array | string {
         $randomNum1 = rand(5, 10);
         $randomNum2 = rand(1, 5);
         $operators = ["+", "*", "-"];
@@ -27,7 +27,7 @@ function startGame(): string
                 $rightAnswer = $randomNum1 - $randomNum2;
                 break;
             default:
-                return "error";
+                return "there is no way to count the expression";
         }
         return ['question' => $question, 'rightAnswer' => $rightAnswer];
     };
