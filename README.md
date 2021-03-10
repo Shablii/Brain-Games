@@ -10,18 +10,18 @@ git clone git@github.com:Shablii/Brain-Games.git
 make install
 
 Для запуска игары "brain-even" используйте make brain-even
-[![Watch the video](https://asciinema.org/a/DfbwIprKEAFNPKsRwQL9uzmtz)
+[![asciicast](https://asciinema.org/a/DfbwIprKEAFNPKsRwQL9uzmtz)
 
 Для запуска игары "brain-calc" используйте make brain-calc
-[![Watch the video](https://asciinema.org/a/A2u0BaLtxDDJubRJAyElIbnep)
+[![asciicast](https://asciinema.org/a/A2u0BaLtxDDJubRJAyElIbnep)
 
 Для запуска игары "brain-gcd" используйте make brain-gcd
-[![Watch the video](https://asciinema.org/a/gqnO2Y1hbzsoSt98y2Q1Yr0gU)
+[![asciicast](https://asciinema.org/a/gqnO2Y1hbzsoSt98y2Q1Yr0gU)
 
 Для запуска игары "brain-progression" используйте make brain-progression
-[![Watch the video](https://asciinema.org/a/OP3vbEXpP8DiaZsRe0FHHBQ5o)
+[![asciicast](https://asciinema.org/a/OP3vbEXpP8DiaZsRe0FHHBQ5o)
 
 Для запуска игары "brain-prime" используйте make brain-prime
-[![Watch the video](https://asciinema.org/a/cuLEnIv3gJk9QCfBZ4bONieF0)
+[![asciicast](https://asciinema.org/a/cuLEnIv3gJk9QCfBZ4bONieF0)
 
 Удачной Игры!
