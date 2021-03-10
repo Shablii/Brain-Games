@@ -3,7 +3,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use function Brain\Games\Games\Calc\StartGame;
+use function Brain\Games\Games\Calc\startGame;
 
-StartGame();
+startGame();
 

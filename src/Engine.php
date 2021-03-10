@@ -6,25 +6,24 @@ use function cli\line;
 use function cli\prompt;
 use function Brain\Games\Cli\welcome;
 
-function brainEngine(callable $getQuestion, callable $getRightAnswer, string $hello): string
+const RAUND = 2;
+
+function getResultGame(callable $getTaskGames, string $questionForTask): string
 {
     $name = welcome();
-    line($hello);
-
-    define("RAUND", 2);
+    line($questionForTask);
 
     for ($i = 0; $i <= RAUND; $i++) {
-        $question = $getQuestion();
-        $rightAnswer = $getRightAnswer($question);
+        $task = $getTaskGames();
 
-        $ansver = prompt("Question: {$question}");
+        $answer = prompt("Question: {$task['question']}");
 
-        if ($ansver == $rightAnswer) {
+        if ($answer == $task['rightAnswer']) {
             line("Correct!");
         } else {
             $wrongAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
-            return (string) line("$wrongAnswer", $ansver, $rightAnswer, $name);
+            return (string) line("$wrongAnswer", $answer, $task['rightAnswer'], $name);
         }
     }
-    return (string) printf("Congratulations, {$name}!");
+    return (string) line("Congratulations, {$name}!");
 }

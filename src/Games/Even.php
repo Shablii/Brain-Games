@@ -2,15 +2,24 @@
 
 namespace Brain\Games\Games\Even;
 
-use function Brain\Games\Engine\brainEngine;
+use function Brain\Games\Engine\getResultGame;
+
+function isEven($num): bool
+{
+    return ($num % 2 !== 0) ? false : true;
+}
 
 function StartGame(): string
 {
-    $question = fn() => rand(1, 20);
+    $getTaskGameEven = function () {
+        $question = rand(1, 20);
 
-    $rightAnswer = fn($question) => ($question % 2 !== 0) ? "no" : "yes";
+        $rightAnswer = isEven($question) ? "yes" : "no";
 
-    $hello = 'Answer "yes" if the number is even, otherwise answer "no".';
+        return ['question' => $question, 'rightAnswer' => $rightAnswer];
+    };
 
-    return brainEngine($question, $rightAnswer, $hello);
+    $questionForTask = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+    return getResultGame($getTaskGameEven, $questionForTask);
 }

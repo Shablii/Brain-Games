@@ -2,32 +2,30 @@
 
 namespace Brain\Games\Games\Gcd;
 
-use function Brain\Games\Engine\brainEngine;
+use function Brain\Games\Engine\getResultGame;
 
 function StartGame(): string
 {
-    $question = function (): string {
+    $getTaskGameGcd = function () {
         $randomNum1 = rand(1, 10);
         $randomNum2 = rand(1, 10);
         $question = "{$randomNum1} {$randomNum2}";
-        return $question;
-    };
 
-    $rightAnsver = function (string $question): int {
         $rightAnswer = 0;
-        [$num1, $num2] = explode(" ", $question);
-        $minNum = ($num1 >= $num2) ? (int) $num2 : (int) $num1 ;
+        $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1;
         while ($minNum >= 1) {
-            if ($num1 % $minNum === 0 && $num2 % $minNum === 0) {
+            $divideWithoutRemainder = $randomNum1 % $minNum === 0 && $randomNum2 % $minNum === 0;
+            if ($divideWithoutRemainder) {
                 $rightAnswer = $minNum;
                 break;
             }
             $minNum--;
         }
-        return $rightAnswer;
+
+        return ['question' => $question, 'rightAnswer' => $rightAnswer];
     };
 
-    $hello = 'Find the greatest common divisor of given numbers.';
+    $questionForTask = 'Find the greatest common divisor of given numbers.';
 
-    return brainEngine($question, $rightAnsver, $hello);
+    return getResultGame($getTaskGameGcd, $questionForTask);
 }

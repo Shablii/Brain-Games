@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Games\Prime;
 
-use function Brain\Games\Engine\brainEngine;
+use function Brain\Games\Engine\getResultGame;
 
 function isPime(int $question): bool
 {
@@ -18,16 +18,17 @@ function isPime(int $question): bool
     return true;
 }
 
-function StartGame(): string
+function startGame(): string
 {
+    $getTaskGamePrime = function () {
+        $question = rand(1, 56);
 
-    $question = function (): int {
-        return rand(1, 55);
+        $rightAnswer = isPime($question) ? "yes" : "no";
+
+        return ['question' => $question, 'rightAnswer' => $rightAnswer];
     };
 
-    $rightAnswer = fn($question) => isPime($question) ? "yes" : "no";
+    $questionForTask = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-    $hello = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-    return brainEngine($question, $rightAnswer, $hello);
+    return getResultGame($getTaskGamePrime, $questionForTask);
 }
