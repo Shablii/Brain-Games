@@ -5,10 +5,10 @@
 
 ## Install:
 Для установки игр необходимо скачать проект(к примеру так):<br>
-  git clone git@github.com:Shablii/Brain-Games.git
+  `git clone git@github.com:Shablii/Brain-Games.git`
 
 Затем выполнить команду(для установки зависимостей):<br>
-  make install
+  `make install`
 
 ## GAMES:
 * Для запуска игары "[brain-even](https://asciinema.org/a/DfbwIprKEAFNPKsRwQL9uzmtz)" используйте make brain-even
@@ -19,6 +19,6 @@
 
 * Для запуска игары "[brain-progression](https://asciinema.org/a/OP3vbEXpP8DiaZsRe0FHHBQ5o)" используйте make brain-progression
 
-Для запуска игары "[brain-prime](https://asciinema.org/a/cuLEnIv3gJk9QCfBZ4bONieF0)" используйте make brain-prime
+* Для запуска игары "[brain-prime](https://asciinema.org/a/cuLEnIv3gJk9QCfBZ4bONieF0)" используйте make brain-prime
 
 Удачной Игры!
