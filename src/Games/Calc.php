@@ -2,13 +2,13 @@
 
 namespace Brain\Games\Games\Calc;
 
-use function Brain\Games\Engine\getResultGame;
+use function Brain\Games\Engine\getTheResultOfTehGame;
 
-const QUESTION_FOR_TASK = 'What is the result of the expression?';
+const QUESTION_TO_THE_TASK = 'What is the result of the expression?';
 
-function startGame(): string
+function startGame(): void
 {
-    $getTaskGameCalculator = function (): array | string {
+    $getTaskForTehGameCalculator = function (): array | string {
         $randomNum1 = rand(5, 10);
         $randomNum2 = rand(1, 5);
         $operators = ["+", "*", "-"];
@@ -32,5 +32,5 @@ function startGame(): string
         return ['question' => $question, 'rightAnswer' => $rightAnswer];
     };
 
-    return getResultGame($getTaskGameCalculator, QUESTION_FOR_TASK);
+    getTheResultOfTehGame($getTaskForTehGameCalculator, QUESTION_TO_THE_TASK);
 }

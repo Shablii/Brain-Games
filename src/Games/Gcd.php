@@ -2,13 +2,13 @@
 
 namespace Brain\Games\Games\Gcd;
 
-use function Brain\Games\Engine\getResultGame;
+use function Brain\Games\Engine\getTheResultOfTehGame;
 
-const QUESTION_FOR_TASK = 'Find the greatest common divisor of given numbers.';
+const QUESTION_TO_THE_TASK = 'Find the greatest common divisor of given numbers.';
 
-function startGame(): string
+function startGame(): void
 {
-    $getTaskGameGcd = function (): array {
+    $getTaskForTehGameGcd = function (): array {
         $randomNum1 = rand(1, 10);
         $randomNum2 = rand(1, 10);
         $question = "{$randomNum1} {$randomNum2}";
@@ -27,5 +27,5 @@ function startGame(): string
         return ['question' => $question, 'rightAnswer' => $rightAnswer];
     };
 
-    return getResultGame($getTaskGameGcd, QUESTION_FOR_TASK);
+    getTheResultOfTehGame($getTaskForTehGameGcd, QUESTION_TO_THE_TASK);
 }

@@ -2,33 +2,30 @@
 
 namespace Brain\Games\Games\Prime;
 
-use function Brain\Games\Engine\getResultGame;
+use function Brain\Games\Engine\getTheResultOfTehGame;
 
-const QUESTION_FOR_TASK = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const QUESTION_TO_THE_TASK = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function isPime(int $question): bool
+function isPime(int $num): bool
 {
-    if ($question <= 1) {
+    if ($num <= 1) {
         return false;
-    } else {
-        for ($i = 2; $i <= round(sqrt($question)); $i++) {
-            if (($question % $i === 0)) {
-                return false;
-            }
+    }
+    for ($i = 2; $i <= round(sqrt($num)); $i++) {
+        if ($num % $i === 0) {
+            return false;
         }
     }
     return true;
 }
 
-function startGame(): string
+function startGame(): void
 {
-    $getTaskGamePrime = function (): array {
+    $getTaskForTehGamePrime = function (): array {
         $question = rand(1, 56);
-
         $rightAnswer = isPime($question) ? "yes" : "no";
-
         return ['question' => $question, 'rightAnswer' => $rightAnswer];
     };
 
-    return getResultGame($getTaskGamePrime, QUESTION_FOR_TASK);
+    getTheResultOfTehGame($getTaskForTehGamePrime, QUESTION_TO_THE_TASK);
 }

@@ -4,26 +4,34 @@ namespace Brain\Games\Engine;
 
 use function cli\line;
 use function cli\prompt;
-use function Brain\Games\Cli\welcome;
 
-const RAUND = 2;
+const ROUND = 2;
 
-function getResultGame(callable $getTaskGames, string $questionForTask): string
+function getTheResultOfTehGame(callable $getTaskForTehGame, string $questionToTheTask): void
 {
-    $name = welcome();
-    line($questionForTask);
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
 
-    for ($i = 0; $i <= RAUND; $i++) {
-        $task = $getTaskGames();
+    line($questionToTheTask);
 
-        $answer = prompt("Question: {$task['question']}");
+    for ($i = 0; $i <= ROUND; $i++) {
+        [
+            'question' => $question,
+            'rightAnswer' => $rightAnswer
+        ] = $getTaskForTehGame();
 
-        if ($answer == $task['rightAnswer']) {
+        $answer = prompt("Question: $question");
+
+        if ($answer == $rightAnswer) {
             line("Correct!");
+            if ($i === ROUND) {
+                line("Congratulations, {$name}!");
+            }
         } else {
             $wrongAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
-            return (string) line("$wrongAnswer", $answer, $task['rightAnswer'], $name);
+            line("$wrongAnswer", $answer, $rightAnswer, $name);
+            break;
         }
     }
-    return (string) line("Congratulations, {$name}!");
 }
