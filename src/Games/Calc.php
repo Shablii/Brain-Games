@@ -27,9 +27,6 @@ function getTaskGameCalculator(): array
         case "-":
             $rightAnswer = $randomNum1 - $randomNum2;
             break;
-        default:
-            throw new Exception("there is no way to count the expression");
-            break;
     }
     return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
 }
