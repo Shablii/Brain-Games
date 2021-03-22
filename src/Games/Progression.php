@@ -2,19 +2,28 @@
 
 namespace Brain\Games\Games\Progression;
 
-use function Brain\Games\Engine\getTheResultOfTehGame;
+use function Brain\Games\Engine\getResultGame;
 
-const QUESTION_TO_THE_TASK = 'Find the greatest common divisor of given numbers.';
+const GAME_CONDITION = 'Find the greatest common divisor of given numbers.';
+const QUESTION = 'question';
+const RIGHT_ANSWER = 'rightAnswer';
 
-function getTaskForTehGameProgression(): array
+function getProgression(): array
 {
     $progression = [];
-    $randomNum1 = rand(1, 10);
-    $randomNum2 = rand(5, 10);
+    $beginProgression = 1;
+    $endProgression = rand(5, 10);
+    $difference = rand(1, 10);
 
-    for ($i = $randomNum1; $i < ($randomNum1 + $randomNum2); $i++) {
-        $progression[] = $i * $randomNum2;
+    for ($i = $beginProgression; $i <= $endProgression; $i++) {
+        $progression[] = $i * $difference;
     }
+
+    return $progression;
+}
+function getTaskGameProgression(): array
+{
+    $progression = getProgression();
 
     $randomProgressionNum = rand(0, count($progression) - 1);
     $rightAnswer = $progression[$randomProgressionNum];
@@ -22,11 +31,11 @@ function getTaskForTehGameProgression(): array
 
     $question = implode(' ', $progression);
 
-    return ['question' => $question, 'rightAnswer' => $rightAnswer];
+    return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
 }
 
 function startGame(): void
 {
-    $getTaskForTehGameProgression = fn() => getTaskForTehGameProgression();
-    getTheResultOfTehGame($getTaskForTehGameProgression, QUESTION_TO_THE_TASK);
+    $getTaskGameProgression = fn() => getTaskGameProgression();
+    getResultGame($getTaskGameProgression, GAME_CONDITION);
 }

@@ -5,33 +5,32 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-const ROUND = 2;
+const ROUNDS_LIMIT = 3;
+const QUESTION = 'question';
+const RIGHT_ANSWER = 'rightAnswer';
 
-function getTheResultOfTehGame(callable $getTaskForTehGame, string $questionToTheTask): void
+function getResultGame(callable $TaskGame, string $gameCondition): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
-    line($questionToTheTask);
+    line($gameCondition);
 
-    for ($i = 0; $i <= ROUND; $i++) {
+    for ($i = 0; $i < ROUNDS_LIMIT; $i++) {
         [
-            'question' => $question,
-            'rightAnswer' => $rightAnswer
-        ] = $getTaskForTehGame();
+            QUESTION => $question,
+            RIGHT_ANSWER => $rightAnswer
+        ] = $TaskGame();
 
         $answer = prompt("Question: $question");
 
         if ($answer == $rightAnswer) {
             line("Correct!");
-            if ($i === ROUND) {
-                line("Congratulations, {$name}!");
-            }
         } else {
-            $wrongAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
-            line("$wrongAnswer", $answer, $rightAnswer, $name);
-            break;
+            $textForWrongAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
+            die(line("$textForWrongAnswer", $answer, $rightAnswer, $name));
         }
     }
+    die(line("Congratulations, {$name}!"));
 }

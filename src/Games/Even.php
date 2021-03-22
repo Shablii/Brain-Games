@@ -2,22 +2,24 @@
 
 namespace Brain\Games\Games\Even;
 
-use function Brain\Games\Engine\getTheResultOfTehGame;
+use function Brain\Games\Engine\getResultGame;
 
-const QUESTION_TO_THE_TASK = 'Answer "yes" if the number is even, otherwise answer "no".';
+const GAME_CONDITION = 'Answer "yes" if the number is even, otherwise answer "no".';
+const QUESTION = 'question';
+const RIGHT_ANSWER = 'rightAnswer';
 
 function isEven(int $num): bool
 {
-    return ($num % 2 !== 0) ? false : true;
+    return $num % 2 === 0;
 }
 
 function startGame(): void
 {
-    $getTaskForTehGameEven = function (): array {
+    $getTaskGameEven = function (): array {
         $question = rand(1, 20);
         $rightAnswer = isEven($question) ? "yes" : "no";
-        return ['question' => $question, 'rightAnswer' => $rightAnswer];
+        return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
     };
 
-    getTheResultOfTehGame($getTaskForTehGameEven, QUESTION_TO_THE_TASK);
+    getResultGame($getTaskGameEven, GAME_CONDITION);
 }

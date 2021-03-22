@@ -2,30 +2,37 @@
 
 namespace Brain\Games\Games\Gcd;
 
-use function Brain\Games\Engine\getTheResultOfTehGame;
+use function Brain\Games\Engine\getResultGame;
 
-const QUESTION_TO_THE_TASK = 'Find the greatest common divisor of given numbers.';
+const GAME_CONDITION = 'Find the greatest common divisor of given numbers.';
+const QUESTION = 'question';
+const RIGHT_ANSWER = 'rightAnswer';
+
+function getGcd($num1, $num2)
+{
+    while ($num1 != 0 && $num2 != 0) {
+        if ($num1 > $num2) {
+            $num1 = $num1 % $num2;
+        } else {
+            $num2 = $num2 % $num1;
+        }
+    }
+    return $num1 + $num2;
+}
+
+function getTaskForTehGameGcd(): array
+{
+    $randomNum1 = rand(1, 10);
+    $randomNum2 = rand(1, 10);
+    $question = "{$randomNum1} {$randomNum2}";
+
+    $rightAnswer = getGcd($randomNum1, $randomNum2);
+
+    return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
+}
 
 function startGame(): void
 {
-    $getTaskForTehGameGcd = function (): array {
-        $randomNum1 = rand(1, 10);
-        $randomNum2 = rand(1, 10);
-        $question = "{$randomNum1} {$randomNum2}";
-
-        $rightAnswer = 0;
-        $minNum = ($randomNum1 >= $randomNum2) ? $randomNum2 : $randomNum1;
-        while ($minNum >= 1) {
-            $divideWithoutRemainder = $randomNum1 % $minNum === 0 && $randomNum2 % $minNum === 0;
-            if ($divideWithoutRemainder) {
-                $rightAnswer = $minNum;
-                break;
-            }
-            $minNum--;
-        }
-
-        return ['question' => $question, 'rightAnswer' => $rightAnswer];
-    };
-
-    getTheResultOfTehGame($getTaskForTehGameGcd, QUESTION_TO_THE_TASK);
+    $getTaskGameGcd = fn() => getTaskForTehGameGcd();
+    getResultGame($getTaskGameGcd, GAME_CONDITION);
 }
