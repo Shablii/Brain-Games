@@ -8,7 +8,7 @@ const GAME_CONDITION = 'What is the result of the expression?';
 const QUESTION = 'question';
 const RIGHT_ANSWER = 'rightAnswer';
 
-function getTaskGameCalculator(): array | string
+function getTaskGameCalculator(): array
 {
     $randomNum1 = rand(5, 10);
     $randomNum2 = rand(1, 5);

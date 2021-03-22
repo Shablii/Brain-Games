@@ -8,7 +8,7 @@ const GAME_CONDITION = 'Find the greatest common divisor of given numbers.';
 const QUESTION = 'question';
 const RIGHT_ANSWER = 'rightAnswer';
 
-function getGcd($num1, $num2)
+function getGcd( int $num1, int $num2): int
 {
     while ($num1 != 0 && $num2 != 0) {
         if ($num1 > $num2) {
