@@ -28,8 +28,8 @@ function getResultGame(callable $TaskGame, string $gameCondition): void
         if ($answer == $rightAnswer) {
             line("Correct!");
         } else {
-            $textForWrongAnswer = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
-            die(line("$textForWrongAnswer", $answer, $rightAnswer, $name));
+            $mistakeMessage = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
+            die(line("$mistakeMessage", $answer, $rightAnswer, $name));
         }
     }
     die(line("Congratulations, {$name}!"));
