@@ -9,7 +9,7 @@ use const Brain\Games\Engine\RIGHT_ANSWER;
 
 const TASK = 'Find the greatest common divisor of given numbers.';
 
-function getProgression($endProgression, $difference): array
+function getProgression(int $endProgression, int $difference): array
 {
     $progression = [];
 

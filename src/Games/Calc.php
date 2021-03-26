@@ -31,15 +31,15 @@ function getTaskGameCalculator(): array
         default:
             throw new Exception("operator not found in getTaskGameCalculator");
     }
-    try {
-        return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
-    } catch (\Exception $e) {
-        echo 'caught exception: ' . $e->getMessage();
-    }
+    return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
 }
 
 function startGame(): void
 {
-    $getTaskGameCalculator = fn() => getTaskGameCalculator();
-    outcomeGame($getTaskGameCalculator, TASK);
+    try {
+        $getTaskGameCalculator = fn() => getTaskGameCalculator();
+        outcomeGame($getTaskGameCalculator, TASK);
+    } catch (\Exception $e) {
+        echo 'caught exception: ' . $e->getMessage();
+    }
 }
