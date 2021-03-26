@@ -2,11 +2,12 @@
 
 namespace Brain\Games\Games\Gcd;
 
-use function Brain\Games\Engine\getResultGame;
+use function Brain\Games\Engine\outcomeGame;
 
-const GAME_CONDITION = 'Find the greatest common divisor of given numbers.';
-const QUESTION = 'question';
-const RIGHT_ANSWER = 'rightAnswer';
+use const Brain\Games\Engine\QUESTION;
+use const Brain\Games\Engine\RIGHT_ANSWER;
+
+const TASK = 'What number is missing in the progression?';
 
 function getGcd(int $num1, int $num2): int
 {
@@ -20,7 +21,7 @@ function getGcd(int $num1, int $num2): int
     return $num1 + $num2;
 }
 
-function getTaskForTehGameGcd(): array
+function getTaskGameGcd(): array
 {
     $randomNum1 = rand(1, 10);
     $randomNum2 = rand(1, 10);
@@ -33,6 +34,6 @@ function getTaskForTehGameGcd(): array
 
 function startGame(): void
 {
-    $getTaskGameGcd = fn() => getTaskForTehGameGcd();
-    getResultGame($getTaskGameGcd, GAME_CONDITION);
+    $getTaskGameGcd = fn() => getTaskGameGcd();
+    outcomeGame($getTaskGameGcd, TASK);
 }

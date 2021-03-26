@@ -2,11 +2,12 @@
 
 namespace Brain\Games\Games\Calc;
 
-use function Brain\Games\Engine\getResultGame;
+use function Brain\Games\Engine\outcomeGame;
 
-const GAME_CONDITION = 'What is the result of the expression?';
-const QUESTION = 'question';
-const RIGHT_ANSWER = 'rightAnswer';
+use const Brain\Games\Engine\QUESTION;
+use const Brain\Games\Engine\RIGHT_ANSWER;
+
+const TASK = 'What is the result of the expression?';
 
 function getTaskGameCalculator(): array
 {
@@ -27,12 +28,18 @@ function getTaskGameCalculator(): array
         case "-":
             $rightAnswer = $randomNum1 - $randomNum2;
             break;
+        default:
+            throw new Exception("operator not found in getTaskGameCalculator");
     }
-    return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
+    try {
+        return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
+    } catch (\Exception $e) {
+        echo 'caught exception: ' . $e->getMessage();
+    }
 }
 
 function startGame(): void
 {
     $getTaskGameCalculator = fn() => getTaskGameCalculator();
-    getResultGame($getTaskGameCalculator, GAME_CONDITION);
+    outcomeGame($getTaskGameCalculator, TASK);
 }

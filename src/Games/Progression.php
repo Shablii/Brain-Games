@@ -2,28 +2,29 @@
 
 namespace Brain\Games\Games\Progression;
 
-use function Brain\Games\Engine\getResultGame;
+use function Brain\Games\Engine\outcomeGame;
 
-const GAME_CONDITION = 'Find the greatest common divisor of given numbers.';
-const QUESTION = 'question';
-const RIGHT_ANSWER = 'rightAnswer';
+use const Brain\Games\Engine\QUESTION;
+use const Brain\Games\Engine\RIGHT_ANSWER;
 
-function getProgression(): array
+const TASK = 'Find the greatest common divisor of given numbers.';
+
+function getProgression($endProgression, $difference): array
 {
     $progression = [];
-    $beginProgression = 1;
-    $endProgression = rand(5, 10);
-    $difference = rand(1, 10);
 
-    for ($i = $beginProgression; $i <= $endProgression; $i++) {
-        $progression[] = $i * $difference;
+    for ($i = 0; $i <= $endProgression; $i++) {
+        $progression[] = ($i + 1) * $difference;
     }
 
     return $progression;
 }
+
 function getTaskGameProgression(): array
 {
-    $progression = getProgression();
+    $endProgression = rand(5, 10);
+    $difference = rand(1, 10);
+    $progression = getProgression($endProgression, $difference);
 
     $randomProgressionNum = rand(0, count($progression) - 1);
     $rightAnswer = $progression[$randomProgressionNum];
@@ -37,5 +38,5 @@ function getTaskGameProgression(): array
 function startGame(): void
 {
     $getTaskGameProgression = fn() => getTaskGameProgression();
-    getResultGame($getTaskGameProgression, GAME_CONDITION);
+    outcomeGame($getTaskGameProgression, TASK);
 }

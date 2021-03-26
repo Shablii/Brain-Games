@@ -9,19 +9,19 @@ const ROUNDS_LIMIT = 3;
 const QUESTION = 'question';
 const RIGHT_ANSWER = 'rightAnswer';
 
-function getResultGame(callable $TaskGame, string $gameCondition): void
+function outcomeGame(callable $getTaskGame, string $task): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
-    line($gameCondition);
+    line($task);
 
     for ($i = 0; $i < ROUNDS_LIMIT; $i++) {
         [
             QUESTION => $question,
             RIGHT_ANSWER => $rightAnswer
-        ] = $TaskGame();
+        ] = $getTaskGame();
 
         $answer = prompt("Question: $question");
 
@@ -29,8 +29,9 @@ function getResultGame(callable $TaskGame, string $gameCondition): void
             line("Correct!");
         } else {
             $mistakeMessage = "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!";
-            die(line("$mistakeMessage", $answer, $rightAnswer, $name));
+            line($mistakeMessage, $answer, $rightAnswer, $name);
+            return;
         }
     }
-    die(line("Congratulations, {$name}!"));
+    line("Congratulations, {$name}!");
 }

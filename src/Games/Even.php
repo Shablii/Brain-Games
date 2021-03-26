@@ -2,11 +2,12 @@
 
 namespace Brain\Games\Games\Even;
 
-use function Brain\Games\Engine\getResultGame;
+use function Brain\Games\Engine\outcomeGame;
 
-const GAME_CONDITION = 'Answer "yes" if the number is even, otherwise answer "no".';
-const QUESTION = 'question';
-const RIGHT_ANSWER = 'rightAnswer';
+use const Brain\Games\Engine\QUESTION;
+use const Brain\Games\Engine\RIGHT_ANSWER;
+
+const TASK = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven(int $num): bool
 {
@@ -21,5 +22,5 @@ function startGame(): void
         return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
     };
 
-    getResultGame($getTaskGameEven, GAME_CONDITION);
+    outcomeGame($getTaskGameEven, TASK);
 }

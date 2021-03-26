@@ -2,11 +2,12 @@
 
 namespace Brain\Games\Games\Prime;
 
-use function Brain\Games\Engine\getResultGame;
+use function Brain\Games\Engine\outcomeGame;
 
-const GAME_CONDITION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const QUESTION = 'question';
-const RIGHT_ANSWER = 'rightAnswer';
+use const Brain\Games\Engine\QUESTION;
+use const Brain\Games\Engine\RIGHT_ANSWER;
+
+const TASK = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPime(int $num): bool
 {
@@ -29,5 +30,5 @@ function startGame(): void
         return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
     };
 
-    getResultGame($getTaskGamePrime, GAME_CONDITION);
+    outcomeGame($getTaskGamePrime, TASK);
 }
