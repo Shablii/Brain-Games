@@ -29,7 +29,7 @@ function getTaskGameCalculator(): array
             $rightAnswer = $randomNum1 - $randomNum2;
             break;
         default:
-            throw new Exception("operator not found in getTaskGameCalculator");
+            throw new \Exception("operator not found in getTaskGameCalculator");
     }
     return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
 }
