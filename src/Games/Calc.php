@@ -10,7 +10,7 @@ use const Brain\Games\Engine\RIGHT_ANSWER;
 const TASK = 'What is the result of the expression?';
 const OPERATORS = ["+", "*", "-"];
 
-function calculate(int $num1, string $operator, int $num2)
+function calculate(int $num1, string $operator, int $num2): int
 {
     switch ($operator) {
         case "+":
