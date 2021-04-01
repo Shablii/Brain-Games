@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Games\Even;
 
-use function Brain\Games\Engine\outcomeGame;
+use function Brain\Games\Engine\run;
 
 use const Brain\Games\Engine\QUESTION;
 use const Brain\Games\Engine\RIGHT_ANSWER;
@@ -14,13 +14,14 @@ function isEven(int $num): bool
     return $num % 2 === 0;
 }
 
+function getGameTask(): array
+{
+    $question = rand(1, 20);
+    $rightAnswer = isEven($question) ? "yes" : "no";
+    return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
+}
+
 function startGame(): void
 {
-    $getTaskGameEven = function (): array {
-        $question = rand(1, 20);
-        $rightAnswer = isEven($question) ? "yes" : "no";
-        return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
-    };
-
-    outcomeGame($getTaskGameEven, TASK);
+    run(fn() => getGameTask(), TASK);
 }

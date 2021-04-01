@@ -9,7 +9,7 @@ const ROUNDS_LIMIT = 3;
 const QUESTION = 'question';
 const RIGHT_ANSWER = 'rightAnswer';
 
-function outcomeGame(callable $getTaskGame, string $task): void
+function run(callable $getGameTask, string $task): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -21,7 +21,7 @@ function outcomeGame(callable $getTaskGame, string $task): void
         [
             QUESTION => $question,
             RIGHT_ANSWER => $rightAnswer
-        ] = $getTaskGame();
+        ] = $getGameTask();
 
         $answer = prompt("Question: $question");
 
