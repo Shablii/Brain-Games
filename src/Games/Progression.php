@@ -9,21 +9,21 @@ use const Brain\Games\Engine\RIGHT_ANSWER;
 
 const TASK = 'What number is missing in the progression?';
 
-function getProgression(int $startProgression, int $finishProgression, int $difference): array
+function getProgression(int $initialProgression, int $countProgression, int $difference): array
 {
     $progression = [];
-    for ($i = 0; $i <= $finishProgression; $i++) {
-        $progression[] = $startProgression + $difference * $i;
+    for ($i = 0; $i <= $countProgression; $i++) {
+        $progression[] = $initialProgression + $difference * $i;
     }
     return $progression;
 }
 
 function getGameTask(): array
 {
-    $startProgression = rand(0, 20);
-    $finishProgression = rand(5, 10);
+    $initialProgression = rand(0, 20);
+    $countProgression = rand(5, 10);
     $difference = rand(1, 10);
-    $progression = getProgression($startProgression, $finishProgression, $difference);
+    $progression = getProgression($initialProgression, $countProgression, $difference);
 
     $randomProgressionNum = rand(0, count($progression) - 1);
     $rightAnswer = $progression[$randomProgressionNum];

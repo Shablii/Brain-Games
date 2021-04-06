@@ -10,7 +10,7 @@ use const Brain\Games\Engine\RIGHT_ANSWER;
 const TASK = 'What is the result of the expression?';
 const OPERATORS = ["+", "*", "-"];
 
-function calculate(int $num1, string $operator, int $num2): int
+function calculate(string $operator, int $num1, int $num2): int
 {
     switch ($operator) {
         case "+":
@@ -32,7 +32,7 @@ function getGameTask(): array
 
     $question = "{$randomNum1} {$operator} {$randomNum2}";
 
-    $rightAnswer = calculate($randomNum1, $operator, $randomNum2);
+    $rightAnswer = calculate($operator, $randomNum1, $randomNum2);
     return [QUESTION => $question, RIGHT_ANSWER => $rightAnswer];
 }
 
