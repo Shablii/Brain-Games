@@ -21,7 +21,7 @@ function getGcd(int $num1, int $num2): int
     return $num1 + $num2;
 }
 
-function getGameTask(): array
+function getTask(): array
 {
     $randomNum1 = rand(1, 10);
     $randomNum2 = rand(1, 10);
@@ -34,5 +34,5 @@ function getGameTask(): array
 
 function startGame(): void
 {
-    run(fn() => getGameTask(), TASK);
+    run(fn() => getTask(), TASK);
 }

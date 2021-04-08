@@ -22,7 +22,7 @@ function isPime(int $num): bool
     return true;
 }
 
-function getGameTask(): array
+function getTask(): array
 {
     $question = rand(1, 42);
     $rightAnswer = isPime($question) ? "yes" : "no";
@@ -31,5 +31,5 @@ function getGameTask(): array
 
 function startGame(): void
 {
-    run(fn() => getGameTask(), TASK);
+    run(fn() => getTask(), TASK);
 }

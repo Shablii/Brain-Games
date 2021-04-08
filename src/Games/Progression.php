@@ -18,7 +18,7 @@ function getProgression(int $initial, int $count, int $difference): array
     return $progression;
 }
 
-function getGameTask(): array
+function getTask(): array
 {
     $initialProgression = rand(0, 20);
     $countProgression = rand(5, 10);
@@ -36,5 +36,5 @@ function getGameTask(): array
 
 function startGame(): void
 {
-    run(fn() => getGameTask(), TASK);
+    run(fn() => getTask(), TASK);
 }

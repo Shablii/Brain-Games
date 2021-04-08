@@ -14,7 +14,7 @@ function isEven(int $num): bool
     return $num % 2 === 0;
 }
 
-function getGameTask(): array
+function getTask(): array
 {
     $question = rand(1, 20);
     $rightAnswer = isEven($question) ? "yes" : "no";
@@ -23,5 +23,5 @@ function getGameTask(): array
 
 function startGame(): void
 {
-    run(fn() => getGameTask(), TASK);
+    run(fn() => getTask(), TASK);
 }

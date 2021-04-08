@@ -24,7 +24,7 @@ function calculate(string $operator, int $num1, int $num2): int
     }
 }
 
-function getGameTask(): array
+function getTask(): array
 {
     $randomNum1 = rand(5, 10);
     $randomNum2 = rand(1, 5);
@@ -38,5 +38,5 @@ function getGameTask(): array
 
 function startGame(): void
 {
-    run(fn() => getGameTask(), TASK);
+    run(fn() => getTask(), TASK);
 }
